@@ -71,10 +71,10 @@ public class Poemstwo extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "12", version = "$Metadata_Version$",
-          description = "$Metadata_Description$",
-          termsOfService = "$Metadata_Terms$",
-          contact = @Contact(name = "", email = "CAEAddress@gmail.com") ,
+      info = @Info(title = "12", version = "",
+          description = "",
+          termsOfService = "",
+          contact = @Contact(name = "mee", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/CAETESTRWTH/microservice-12/blob/master/LICENSE.txt") ) )
   @Path("/")
@@ -118,9 +118,15 @@ public class Poemstwo extends RESTService {
     if(response_condition) {
       JSONObject result = new JSONObject();
 
+ JSONArray a = new JSONArray();
       
-
-      return Response.status(HttpURLConnection.HTTP_OK).entity(result.toJSONString()).build();
+JSONObject temp = new JSONObject();
+            temp.put("text", "Hast du eine große Freude an etwas gehabt, so nimm Abschied! Nie kommt es zum zweiten Male."); 
+  a.add(temp);
+JSONObject temp1 = new JSONObject();
+            temp1.put("text", "Keine Kunst ist's, alt zu werden; es ist Kunst, es zu ertragen.");
+  a.add(temp1);
+        return Response.ok(a.toJSONString()).build();
     }
     return null;
   }
